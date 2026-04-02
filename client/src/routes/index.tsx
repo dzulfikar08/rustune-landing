@@ -426,16 +426,16 @@ function Index() {
 						<Button
 							size="lg"
 							variant="outline"
-							className="text-sm px-8 h-12 border-yellow-500/20 hover:bg-yellow-500/[0.06] hover:border-yellow-500/40 text-yellow-400 font-mono-display"
+							className="text-sm px-8 h-12 border-[#635bff]/20 hover:bg-[#635bff]/[0.06] hover:border-[#635bff]/40 text-[#8b7eff] font-mono-display"
 							asChild
 						>
 							<a
-								href="https://paypal.me/dzulfikar08"
+								href="https://buy.polar.sh/polar_cl_5biCTVOUrPNRQrHDDDQATVrUfCsMHD72P5pMy2cvmUX"
 								target="_blank"
 								rel="noopener"
 							>
-								<span className="mr-2">☕</span>
-								Buy me a coffee
+								<Heart className="w-4 h-4 mr-2" />
+								Polar
 							</a>
 						</Button>
 					</div>
