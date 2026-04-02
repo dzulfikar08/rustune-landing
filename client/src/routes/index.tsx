@@ -208,8 +208,8 @@ function Index() {
 						</Button>
 					</div>
 
-					{/* Terminal Preview */}
-					<div className="animate-fade-in-up delay-600 mt-20 max-w-2xl mx-auto">
+					{/* App Screenshot */}
+					<div className="animate-fade-in-up delay-600 mt-20 max-w-3xl mx-auto">
 						<div className="crt-terminal rounded-xl border border-[#00ff88]/10 glow-box overflow-hidden">
 							{/* Title bar */}
 							<div className="flex items-center gap-3 px-4 py-2.5 bg-[#0a0a0a] border-b border-[#ffffff06]">
@@ -222,47 +222,12 @@ function Index() {
 									rustune — ~/music
 								</span>
 							</div>
-
-							{/* Terminal body */}
-							<div className="bg-[#080808] p-6 font-mono-display text-[13px] text-left space-y-3">
-								<div className="text-muted-foreground">
-									<span className="text-[#00ff88]">~</span>{" "}
-									<span className="text-[#6b6b6b]">$</span> ./rustune
-								</div>
-								<div className="text-[#00d4ff]">
-									<span className="text-[#00ff88]">▶</span> Now playing:
-									Lofi Hip Hop Radio — beats to relax/study to
-								</div>
-
-								{/* Progress bar */}
-								<div className="flex items-center gap-3 text-muted-foreground">
-									<span className="text-[11px]">3:24</span>
-									<div className="flex-1 h-1 bg-[#1a1a1a] rounded-full overflow-hidden">
-										<div
-											className="h-full bg-gradient-to-r from-[#00ff88] to-[#00d4ff] rounded-full"
-											style={{
-												animation: "progress-fill 2s ease-out 1s both",
-											}}
-										/>
-									</div>
-									<span className="text-[11px]">1:02:15</span>
-								</div>
-
-								{/* Stats bar */}
-								<div className="flex items-center gap-8 text-[11px] text-muted-foreground pt-1">
-									<span className="flex items-center gap-1.5">
-										<span className="text-[#00ff88]">MEM</span>{" "}
-										<span className="text-foreground/80">1.5 MB</span>
-									</span>
-									<span className="flex items-center gap-1.5">
-										<span className="text-[#00d4ff]">CPU</span>{" "}
-										<span className="text-foreground/80">0.3%</span>
-									</span>
-									<span className="flex items-center gap-1.5">
-										<span className="text-[#a855f7]">SKIN</span>{" "}
-										<span className="text-foreground/80">Winamp Classic</span>
-									</span>
-								</div>
+							<div className="bg-[#080808]">
+								<img
+									src="/screenshot.webp"
+									alt="Rustune terminal audio player interface"
+									className="w-full h-auto block"
+								/>
 							</div>
 						</div>
 					</div>
