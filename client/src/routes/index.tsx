@@ -379,8 +379,8 @@ function Index() {
 							</Button>
 						</div>
 
-						<p className="text-[11px] text-muted-foreground/40 font-mono-display mt-2">
-							macOS binaries are signed &amp; notarized. Also available:{" "}
+						<p className="text-[11px] text-muted-foreground/50 font-mono-display mt-4 leading-relaxed">
+							macOS binaries are signed &amp; notarized by a verified Apple Developer — no need to bypass Gatekeeper or tweak privacy settings. Also available:{" "}
 							<a
 								href="https://github.com/dzulfikar08/rustune/releases/latest/download/rustune-aarch64-macos"
 								className="text-[#00ff88]/50 hover:text-[#00ff88] underline underline-offset-2"
@@ -427,8 +427,10 @@ function Index() {
 						Support the project
 					</h2>
 					<p className="text-muted-foreground text-lg mb-12 max-w-lg mx-auto leading-relaxed">
-						rustune is free and open source. If you find it useful,
-						consider supporting its development.
+						rustune is free and open source. macOS binaries are signed
+						&amp; notarized by a verified Apple Developer — that certification
+						costs real money. If you find rustune useful, a donation helps
+						cover those costs and keeps development going.
 					</p>
 
 					<div className="flex flex-col sm:flex-row gap-3 justify-center">
