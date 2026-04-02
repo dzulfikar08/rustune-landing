@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-	Music,
 	Github,
 	Download,
 	Heart,
@@ -102,17 +101,12 @@ function Index() {
 			<nav className="fixed top-0 left-0 right-0 z-50 border-b border-[#ffffff06] bg-[#050505]/70 backdrop-blur-2xl">
 				<div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
 					<div className="flex items-center gap-3">
-						<div className="relative">
-							<div className="w-7 h-7 rounded-md bg-[#00ff88] flex items-center justify-center">
-								<Music className="w-4 h-4 text-black" />
-							</div>
-							<div className="absolute -inset-1 rounded-md bg-[#00ff88]/20 blur-sm -z-10" />
-						</div>
+						<img src="/favicon.svg" alt="rustune" className="w-7 h-7" />
 						<span className="font-mono-display text-sm font-bold tracking-tight">
 							rustune
 						</span>
-						<span className="hidden sm:inline text-[10px] font-mono-display text-muted-foreground/50 border border-border/50 rounded px-1.5 py-0.5 ml-1">
-							v0.5
+						<span className="hidden sm:inline text-[10px] font-mono-display text-[#00ff88]/70 border border-[#00ff88]/20 rounded px-1.5 py-0.5 ml-1">
+							BETA
 						</span>
 					</div>
 					<div className="flex items-center gap-6">
@@ -452,9 +446,7 @@ function Index() {
 			<footer className="py-8 px-6 border-t border-[#ffffff06]">
 				<div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
 					<div className="flex items-center gap-3 text-sm text-muted-foreground">
-						<div className="w-5 h-5 rounded-sm bg-[#00ff88] flex items-center justify-center">
-							<Music className="w-3 h-3 text-black" />
-						</div>
+						<img src="/favicon.svg" alt="rustune" className="w-5 h-5" />
 						<span className="font-mono-display text-xs">rustune</span>
 						<span className="text-border">·</span>
 						<span className="text-xs">Built with Rust</span>
