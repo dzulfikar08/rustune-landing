@@ -172,7 +172,7 @@ function Index() {
 						<span className="text-[#00ff88] font-mono-display font-bold">
 							1.5MB RAM
 						</span>
-						. Streams from YouTube, supports Winamp skins, plays your local
+						. Supports online audio sources, Winamp skins, plays your local
 						files — all from your terminal.
 					</p>
 
@@ -306,8 +306,8 @@ function Index() {
 							},
 							{
 								icon: Radio,
-								title: "YouTube Streaming",
-								desc: "Stream audio directly from YouTube via yt-dlp. No browser needed, no ads, just the music.",
+								title: "Online Audio Sources",
+								desc: "Play audio from online sources via yt-dlp. Audio-first playback with no browser overhead.",
 								color: "#00d4ff",
 							},
 							{
