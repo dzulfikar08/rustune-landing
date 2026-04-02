@@ -111,7 +111,7 @@ function Index() {
 					</div>
 					<div className="flex items-center gap-6">
 						<a
-							href="https://github.com/dzulfikar08/litetube"
+							href="https://github.com/dzulfikar08/rustune"
 							target="_blank"
 							rel="noopener"
 							className="text-muted-foreground hover:text-foreground transition-colors text-sm font-mono-display"
@@ -192,7 +192,7 @@ function Index() {
 							asChild
 						>
 							<a
-								href="https://github.com/dzulfikar08/litetube"
+								href="https://github.com/dzulfikar08/rustune"
 								target="_blank"
 								rel="noopener"
 							>
@@ -322,12 +322,12 @@ function Index() {
 								asChild
 							>
 								<a
-									href="https://github.com/dzulfikar08/litetube/releases/latest"
+									href="https://github.com/dzulfikar08/rustune/releases/latest/download/rustune-aarch64-macos.dmg"
 									target="_blank"
 									rel="noopener"
 								>
 									<Download className="w-4 h-4 mr-2" />
-									macOS (Apple Silicon)
+									macOS .dmg (Apple Silicon)
 								</a>
 							</Button>
 							<Button
@@ -337,7 +337,7 @@ function Index() {
 								asChild
 							>
 								<a
-									href="https://github.com/dzulfikar08/litetube/releases/latest"
+									href="https://github.com/dzulfikar08/rustune/releases/latest/download/rustune-x86_64-linux"
 									target="_blank"
 									rel="noopener"
 								>
@@ -354,7 +354,7 @@ function Index() {
 								asChild
 							>
 								<a
-									href="https://github.com/dzulfikar08/litetube/releases/latest"
+									href="https://github.com/dzulfikar08/rustune/releases/latest/download/rustune-x86_64-windows.exe"
 									target="_blank"
 									rel="noopener"
 								>
@@ -369,7 +369,7 @@ function Index() {
 								asChild
 							>
 								<a
-									href="https://github.com/dzulfikar08/litetube"
+									href="https://github.com/dzulfikar08/rustune"
 									target="_blank"
 									rel="noopener"
 								>
@@ -379,13 +379,37 @@ function Index() {
 							</Button>
 						</div>
 
+						<p className="text-[11px] text-muted-foreground/40 font-mono-display mt-2">
+							macOS binaries are signed &amp; notarized. Also available:{" "}
+							<a
+								href="https://github.com/dzulfikar08/rustune/releases/latest/download/rustune-aarch64-macos"
+								className="text-[#00ff88]/50 hover:text-[#00ff88] underline underline-offset-2"
+							>
+								bare binary (ARM)
+							</a>
+							{" | "}
+							<a
+								href="https://github.com/dzulfikar08/rustune/releases/latest/download/rustune-x86_64-macos.dmg"
+								className="text-[#00ff88]/50 hover:text-[#00ff88] underline underline-offset-2"
+							>
+								.dmg (Intel)
+							</a>
+							{" | "}
+							<a
+								href="https://github.com/dzulfikar08/rustune/releases/latest/download/rustune-x86_64-macos"
+								className="text-[#00ff88]/50 hover:text-[#00ff88] underline underline-offset-2"
+							>
+								bare binary (Intel)
+							</a>
+						</p>
+
 						{/* Cargo install */}
 						<div className="mt-6 p-3 rounded-lg bg-[#0a0a0a] border border-border/40">
 							<div className="text-[11px] text-muted-foreground/60 font-mono-display mb-1.5">
 								or install via cargo:
 							</div>
 							<code className="font-mono-display text-[13px] text-[#00ff88]">
-								$ cargo install --git https://github.com/dzulfikar08/litetube
+								$ cargo install --git https://github.com/dzulfikar08/rustune
 							</code>
 						</div>
 					</div>
@@ -453,7 +477,7 @@ function Index() {
 					</div>
 					<div className="flex items-center gap-6 text-xs text-muted-foreground font-mono-display">
 						<a
-							href="https://github.com/dzulfikar08/litetube"
+							href="https://github.com/dzulfikar08/rustune"
 							target="_blank"
 							rel="noopener"
 							className="hover:text-foreground transition-colors"
@@ -461,7 +485,7 @@ function Index() {
 							GitHub
 						</a>
 						<a
-							href="https://github.com/dzulfikar08/litetube/issues"
+							href="https://github.com/dzulfikar08/rustune/issues"
 							target="_blank"
 							rel="noopener"
 							className="hover:text-foreground transition-colors"
