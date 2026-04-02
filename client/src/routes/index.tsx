@@ -148,7 +148,7 @@ function Index() {
 
 					{/* Heading */}
 					<h1 className="animate-fade-in-up delay-100 text-[3.5rem] sm:text-[6rem] leading-[0.9] tracking-tighter mb-8 font-extrabold">
-						<span className="block text-foreground/90">your music.</span>
+						<span className="block text-foreground/90">your audio.</span>
 						<span className="block gradient-text glow-green mt-1">
 							minimal
 						</span>
@@ -213,7 +213,7 @@ function Index() {
 									<div className="w-2.5 h-2.5 rounded-full bg-[#28c840]/60" />
 								</div>
 								<span className="text-[11px] font-mono-display text-muted-foreground/40 tracking-wider">
-									rustune — ~/music
+									rustune — ~/audio
 								</span>
 							</div>
 							<div className="bg-[#080808]">
@@ -250,7 +250,7 @@ function Index() {
 							<span className="text-muted-foreground">?</span>
 						</h2>
 						<p className="text-muted-foreground text-lg mt-4 max-w-lg leading-relaxed">
-							Because your music player shouldn't need 500MB of RAM
+							Because your audio player shouldn't need 500MB of RAM
 							just to play an MP3.
 						</p>
 					</div>
