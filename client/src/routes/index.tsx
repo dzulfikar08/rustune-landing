@@ -89,7 +89,7 @@ function StatCounter({
 
 function Index() {
 	return (
-		<div className="min-h-screen bg-background text-foreground overflow-x-hidden noise-overlay">
+		<div className="min-h-screen bg-background text-foreground overflow-x-hidden noise-overlay" itemScope itemType="https://schema.org/SoftwareApplication">
 			{/* ─── Ambient Background ─── */}
 			<div className="fixed inset-0 pointer-events-none overflow-hidden">
 				<div className="absolute -top-1/2 -left-1/4 w-[800px] h-[800px] rounded-full bg-[#00ff88] opacity-[0.02] blur-[150px]" />
@@ -98,17 +98,17 @@ function Index() {
 			</div>
 
 			{/* ─── Nav ─── */}
-			<nav className="fixed top-0 left-0 right-0 z-50 border-b border-[#ffffff06] bg-[#050505]/70 backdrop-blur-2xl">
+			<nav aria-label="Main navigation" className="fixed top-0 left-0 right-0 z-50 border-b border-[#ffffff06] bg-[#050505]/70 backdrop-blur-2xl">
 				<div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-					<div className="flex items-center gap-3">
-						<img src="/favicon.svg" alt="rustune" className="w-7 h-7" />
+					<a href="/" className="flex items-center gap-3" aria-label="Rustune home">
+						<img src="/favicon.svg" alt="Rustune logo" className="w-7 h-7" />
 						<span className="font-mono-display text-sm font-bold tracking-tight">
 							rustune
 						</span>
 						<span className="hidden sm:inline text-[10px] font-mono-display text-[#00ff88]/70 border border-[#00ff88]/20 rounded px-1.5 py-0.5 ml-1">
 							BETA
 						</span>
-					</div>
+					</a>
 					<div className="flex items-center gap-6">
 						<a
 							href="https://github.com/dzulfikar08/rustune"
@@ -135,7 +135,7 @@ function Index() {
 			</nav>
 
 			{/* ─── Hero ─── */}
-			<section className="relative pt-28 sm:pt-36 pb-16 px-6">
+			<header className="relative pt-28 sm:pt-36 pb-16 px-6">
 				<div className="max-w-4xl mx-auto text-center relative z-10">
 					{/* Badge */}
 					<div className="animate-fade-in-up inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-[#00ff88]/15 bg-[#00ff88]/[0.03] text-xs font-mono-display text-muted-foreground mb-10">
@@ -153,6 +153,7 @@ function Index() {
 							minimal
 						</span>
 						<span className="block text-foreground/90">resources.</span>
+						<span className="sr-only"> — Rustune: a lightweight Rust terminal audio player using only 1.5MB RAM</span>
 					</h1>
 
 					{/* Waveform */}
@@ -162,12 +163,12 @@ function Index() {
 
 					{/* Subtitle */}
 					<p className="animate-fade-in-up delay-300 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto mb-12 leading-relaxed">
-						A terminal audio player that uses only{" "}
+						A <strong>terminal audio player written in Rust</strong> that uses only{" "}
 						<span className="text-[#00ff88] font-mono-display font-bold">
 							1.5MB RAM
 						</span>
-						. Supports online audio sources, Winamp skins, plays your local
-						files — all from your terminal.
+						. Supports <strong>online audio streaming via yt-dlp</strong>, <strong>Winamp skins (.wsz)</strong>, plays your local
+						files — all from your terminal. Available on <strong>macOS</strong>, <strong>Linux</strong>, and <strong>Windows</strong>.
 					</p>
 
 					{/* CTAs */}
@@ -219,17 +220,18 @@ function Index() {
 							<div className="bg-[#080808]">
 								<img
 									src="/screenshot.webp"
-									alt="Rustune terminal audio player interface"
+									alt="Rustune terminal audio player showing the TUI interface with playback controls and Winamp skin loaded in a terminal window"
 									className="w-full h-auto block"
+								loading="lazy"
 								/>
 							</div>
 						</div>
 					</div>
 				</div>
-			</section>
+			</header>
 
 			{/* ─── Stats ─── */}
-			<section className="py-20 px-6 diagonal-divider">
+			<section aria-label="Key statistics" className="py-20 px-6 diagonal-divider">
 				<div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-10">
 					<StatCounter value="1.5MB" label="Ram Usage" delay="0ms" />
 					<StatCounter value="0.3%" label="CPU Usage" delay="100ms" />
@@ -239,7 +241,7 @@ function Index() {
 			</section>
 
 			{/* ─── Features ─── */}
-			<section className="py-24 px-6">
+			<section aria-label="Features" className="py-24 px-6">
 				<div className="max-w-6xl mx-auto">
 					<div className="mb-20">
 						<div className="font-mono-display text-[11px] text-[#00ff88] tracking-[0.3em] uppercase mb-4">
@@ -301,7 +303,7 @@ function Index() {
 			</section>
 
 			{/* ─── Download ─── */}
-			<section id="download" className="py-24 px-6 diagonal-divider">
+			<section id="download" aria-label="Download Rustune" className="py-24 px-6 diagonal-divider">
 				<div className="max-w-3xl mx-auto text-center">
 					<div className="font-mono-display text-[11px] text-[#00ff88] tracking-[0.3em] uppercase mb-4">
 						install
@@ -417,7 +419,7 @@ function Index() {
 			</section>
 
 			{/* ─── Support ─── */}
-			<section className="py-24 px-6">
+			<section aria-label="Support the project" className="py-24 px-6">
 				<div className="max-w-3xl mx-auto text-center">
 					<div className="relative inline-block mb-8">
 						<Heart className="w-10 h-10 text-red-400/80" />
@@ -468,11 +470,44 @@ function Index() {
 				</div>
 			</section>
 
+			{/* ─── Hidden FAQ for SEO (visually hidden, accessible to search engines) ─── */}
+			<section aria-label="Frequently Asked Questions" className="sr-only">
+				<h2>Frequently Asked Questions about Rustune</h2>
+				<article>
+					<h3>What is Rustune?</h3>
+					<p>Rustune is a lightweight open-source terminal audio player written in Rust. It uses only 1.5MB of RAM and supports local files, online audio via yt-dlp, and Winamp skins (.wsz format).</p>
+				</article>
+				<article>
+					<h3>How do I install Rustune?</h3>
+					<p>You can download pre-built binaries for macOS (Apple Silicon and Intel), Linux (x86_64), and Windows (x86_64) from the GitHub releases page. You can also build from source using: cargo install --git https://github.com/dzulfikar08/rustune</p>
+				</article>
+				<article>
+					<h3>Does Rustune support Winamp skins?</h3>
+					<p>Yes! Rustune supports loading classic Winamp skins in .wsz format, bringing nostalgia with modern performance. Load any Winamp skin and enjoy the classic look in your terminal.</p>
+				</article>
+				<article>
+					<h3>How much RAM does Rustune use?</h3>
+					<p>Rustune uses approximately 1.5MB of RAM — less than a single browser tab, making it ideal for low-end machines, servers, and terminal purists.</p>
+				</article>
+				<article>
+					<h3>Can Rustune play online audio?</h3>
+					<p>Yes, Rustune supports playing audio from online sources via yt-dlp integration. Stream audio directly from the internet without any browser overhead.</p>
+				</article>
+				<article>
+					<h3>Is Rustune free?</h3>
+					<p>Yes, Rustune is fully open source under the MIT license. It is free to use, modify, and distribute. You can support the project through donations via Saweria or Polar.</p>
+				</article>
+				<article>
+					<h3>What platforms does Rustune support?</h3>
+					<p>Rustune is available for macOS (Apple Silicon and Intel), Linux (x86_64), and Windows (x86_64). macOS binaries are signed and notarized by a verified Apple Developer.</p>
+				</article>
+			</section>
+
 			{/* ─── Footer ─── */}
-			<footer className="py-8 px-6 border-t border-[#ffffff06]">
+			<footer aria-label="Site footer" className="py-8 px-6 border-t border-[#ffffff06]">
 				<div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
 					<div className="flex items-center gap-3 text-sm text-muted-foreground">
-						<img src="/favicon.svg" alt="rustune" className="w-5 h-5" />
+						<img src="/favicon.svg" alt="Rustune logo" className="w-5 h-5" />
 						<span className="font-mono-display text-xs">rustune</span>
 						<span className="text-border">·</span>
 						<span className="text-xs">Built with Rust</span>

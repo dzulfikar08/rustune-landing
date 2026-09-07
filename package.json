@@ -22,7 +22,8 @@
     "type-check": "turbo type-check",
     "test": "turbo test",
     "postinstall": "turbo build --filter=shared --filter=server",
-    "format": "biome format . --write"
+    "format": "biome format . --write",
+    "deploy": "bun run build && cd client && wrangler pages deploy dist/"
   },
   "keywords": [
     "bun",

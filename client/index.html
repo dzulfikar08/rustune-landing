@@ -2,20 +2,121 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Rustune — A lightweight audio player written in Rust. Only 1.5MB RAM. Supports online audio sources. Winamp skins. The player that respects your resources." />
-    <meta name="keywords" content="rustune, audio player, rust, lightweight, winamp skins, online audio, terminal audio player" />
-    <meta property="og:title" content="Rustune — 1.5MB RAM Audio Player" />
-    <meta property="og:description" content="A lightweight audio player written in Rust. Supports online audio sources via external tools. Winamp skins." />
+
+    <!-- Primary Meta Tags -->
+    <title>Rustune — Lightweight Terminal Audio Player Written in Rust | 1.5MB RAM</title>
+    <meta name="title" content="Rustune — Lightweight Terminal Audio Player Written in Rust | 1.5MB RAM" />
+    <meta name="description" content="Rustune is an open-source terminal audio player written in Rust. Uses only 1.5MB RAM. Supports online audio via yt-dlp, Winamp skins (.wsz), and local files. Available for macOS, Linux, and Windows." />
+    <meta name="keywords" content="rustune, rust audio player, terminal audio player, lightweight audio player, minimal audio player, TUI audio player, winamp skins, winamp skin player, online audio streaming, yt-dlp audio, low memory audio player, command line music player, rust music player, open source audio player, terminal music player, linux audio player, macos audio player" />
+    <meta name="author" content="dzulfikar08" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#00ff88" />
+    <link rel="canonical" href="https://rustune.dzulfikar.com/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://rustune.dzulfikar.com/" />
+    <meta property="og:title" content="Rustune — Terminal Audio Player That Uses Only 1.5MB RAM" />
+    <meta property="og:description" content="Open-source terminal audio player written in Rust. 1.5MB RAM, Winamp skins, online audio streaming, local playback. macOS, Linux, Windows." />
+    <meta property="og:image" content="https://rustune.dzulfikar.com/screenshot.webp" />
+    <meta property="og:image:alt" content="Rustune terminal audio player showing the TUI interface with a Winamp skin" />
+    <meta property="og:site_name" content="Rustune" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Rustune — 1.5MB RAM Audio Player" />
-    <meta name="twitter:description" content="A lightweight audio player written in Rust. Supports online audio sources via external tools. Winamp skins." />
+    <meta name="twitter:url" content="https://rustune.dzulfikar.com/" />
+    <meta name="twitter:title" content="Rustune — Terminal Audio Player That Uses Only 1.5MB RAM" />
+    <meta name="twitter:description" content="Open-source terminal audio player written in Rust. 1.5MB RAM, Winamp skins, online audio streaming, local playback." />
+    <meta name="twitter:image" content="https://rustune.dzulfikar.com/screenshot.webp" />
+    <meta name="twitter:image:alt" content="Rustune terminal audio player TUI interface" />
+
+    <!-- Structured Data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Rustune",
+      "description": "A lightweight open-source terminal audio player written in Rust. Uses only 1.5MB RAM. Supports online audio sources via yt-dlp, Winamp skins, and local file playback.",
+      "url": "https://github.com/dzulfikar08/rustune",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": ["macOS", "Linux", "Windows"],
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "programmingLanguage": "Rust",
+      "license": "https://opensource.org/licenses/MIT",
+      "author": {
+        "@type": "Person",
+        "name": "dzulfikar08",
+        "url": "https://github.com/dzulfikar08"
+      },
+      "featureList": [
+        "1.5MB RAM usage",
+        "Online audio streaming via yt-dlp",
+        "Winamp skin support (.wsz)",
+        "Local audio file playback",
+        "Terminal TUI interface",
+        "macOS signed and notarized binaries"
+      ],
+      "screenshot": "https://rustune.dzulfikar.com/screenshot.webp",
+      "codeRepository": "https://github.com/dzulfikar08/rustune"
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is Rustune?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rustune is a lightweight open-source terminal audio player written in Rust. It uses only 1.5MB of RAM and supports local files, online audio via yt-dlp, and Winamp skins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I install Rustune?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "You can download pre-built binaries for macOS, Linux, and Windows from the GitHub releases page, or build from source using: cargo install --git https://github.com/dzulfikar08/rustune"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Rustune support Winamp skins?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Rustune supports loading classic Winamp skins in .wsz format, bringing nostalgia with modern performance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much RAM does Rustune use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rustune uses approximately 1.5MB of RAM — less than a single browser tab, making it ideal for low-end machines and servers."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Preconnect for Performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
-    <title>Rustune — 1.5MB RAM Audio Player</title>
   </head>
   <body>
     <div id="root"></div>
