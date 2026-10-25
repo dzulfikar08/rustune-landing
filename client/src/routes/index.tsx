@@ -7,10 +7,15 @@ import {
 	Palette,
 	Radio,
 	Zap,
-	MemoryStick,
 	Shield,
 	Terminal,
 	ArrowRight,
+	SlidersHorizontal,
+	Activity,
+	Server,
+	Mic,
+	Keyboard,
+	Podcast,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef, useState } from "react";
@@ -106,7 +111,7 @@ function Index() {
 							rustune
 						</span>
 						<span className="hidden sm:inline text-[10px] font-mono-display text-[#00ff88]/70 border border-[#00ff88]/20 rounded px-1.5 py-0.5 ml-1">
-							BETA
+							v0.3
 						</span>
 					</div>
 					<div className="flex items-center gap-6">
@@ -143,7 +148,7 @@ function Index() {
 							<span className="absolute inline-flex h-full w-full rounded-full bg-[#00ff88] opacity-60 animate-[pulse-ring_1.5s_ease-out_infinite]" />
 							<span className="relative inline-flex rounded-full h-2 w-2 bg-[#00ff88]" />
 						</span>
-						written in rust — open source
+						v0.3 — real winamp skins in your terminal
 					</div>
 
 					{/* Heading */}
@@ -162,12 +167,13 @@ function Index() {
 
 					{/* Subtitle */}
 					<p className="animate-fade-in-up delay-300 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto mb-12 leading-relaxed">
-						A terminal audio player that uses only{" "}
+						A terminal audio player in a{" "}
 						<span className="text-[#00ff88] font-mono-display font-bold">
-							1.5MB RAM
-						</span>
-						. Supports online audio sources, Winamp skins, plays your local
-						files — all from your terminal.
+							5&nbsp;MB
+						</span>{" "}
+						binary. Load any classic Winamp <code className="font-mono-display">.wsz</code>{" "}
+						skin, pixel for pixel. Local files, radio, podcasts, Navidrome,
+						Jellyfin and YouTube — no mpv, no Electron.
 					</p>
 
 					{/* CTAs */}
@@ -202,39 +208,59 @@ function Index() {
 						</Button>
 					</div>
 
-					{/* App Screenshot */}
-					<div className="animate-fade-in-up delay-600 mt-20 max-w-3xl mx-auto">
-						<div className="crt-terminal rounded-xl border border-[#00ff88]/10 glow-box overflow-hidden">
-							{/* Title bar */}
-							<div className="flex items-center gap-3 px-4 py-2.5 bg-[#0a0a0a] border-b border-[#ffffff06]">
-								<div className="flex gap-2">
-									<div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]/60" />
-									<div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]/60" />
-									<div className="w-2.5 h-2.5 rounded-full bg-[#28c840]/60" />
+					{/* App Screenshots */}
+					<div className="animate-fade-in-up delay-600 mt-20 grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto items-start">
+						{[
+							{
+								src: "/skin-zelda.webp",
+								skin: "Zelda Amp 3",
+								alt: "rustune with the Zelda Amp Winamp skin: main window, equalizer and playlist",
+							},
+							{
+								src: "/skin-breeder.webp",
+								skin: "Breeder Unit 003",
+								alt: "rustune with the Breeder Unit Winamp skin: main window and playlist",
+							},
+						].map((shot) => (
+							<figure
+								key={shot.src}
+								className="crt-terminal rounded-xl border border-[#00ff88]/10 glow-box overflow-hidden"
+							>
+								<div className="flex items-center gap-3 px-4 py-2.5 bg-[#0a0a0a] border-b border-[#ffffff06]">
+									<div className="flex gap-2">
+										<div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]/60" />
+										<div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]/60" />
+										<div className="w-2.5 h-2.5 rounded-full bg-[#28c840]/60" />
+									</div>
+									<span className="text-[11px] font-mono-display text-muted-foreground/40 tracking-wider">
+										rustune — {shot.skin}
+									</span>
 								</div>
-								<span className="text-[11px] font-mono-display text-muted-foreground/40 tracking-wider">
-									rustune — ~/audio
-								</span>
-							</div>
-							<div className="bg-[#080808]">
-								<img
-									src="/screenshot.webp"
-									alt="Rustune terminal audio player interface"
-									className="w-full h-auto block"
-								/>
-							</div>
-						</div>
+								<div className="bg-[#080808]">
+									<img
+										src={shot.src}
+										alt={shot.alt}
+										loading="lazy"
+										className="w-full h-auto block [image-rendering:pixelated]"
+									/>
+								</div>
+							</figure>
+						))}
 					</div>
+					<p className="mt-6 text-xs font-mono-display text-muted-foreground/50">
+						real screenshots · skins from the Winamp Skin Museum, browsable
+						inside the app
+					</p>
 				</div>
 			</section>
 
 			{/* ─── Stats ─── */}
 			<section className="py-20 px-6 diagonal-divider">
 				<div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-10">
-					<StatCounter value="1.5MB" label="Ram Usage" delay="0ms" />
-					<StatCounter value="0.3%" label="CPU Usage" delay="100ms" />
-					<StatCounter value="∞" label="Winamp Skins" delay="200ms" />
-					<StatCounter value="Rust" label="Built With" delay="300ms" />
+					<StatCounter value="4.9MB" label="macOS Binary" delay="0ms" />
+					<StatCounter value="0.1%" label="CPU While Playing" delay="100ms" />
+					<StatCounter value="0" label="Runtime Deps" delay="200ms" />
+					<StatCounter value="100k+" label="Winamp Skins Online" delay="300ms" />
 				</div>
 			</section>
 
@@ -250,52 +276,180 @@ function Index() {
 							<span className="text-muted-foreground">?</span>
 						</h2>
 						<p className="text-muted-foreground text-lg mt-4 max-w-lg leading-relaxed">
-							Because your audio player shouldn't need 500MB of RAM
-							just to play an MP3.
+							Everything a modern player does, without a browser, a daemon
+							zoo, or a 35&nbsp;MB binary.
 						</p>
 					</div>
 
 					<div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
 						{[
 							{
-								icon: MemoryStick,
-								title: "1.5MB RAM",
-								desc: "Uses less memory than a single browser tab. Perfect for low-end machines, servers, and terminal purists.",
-								color: "#00ff88",
-							},
-							{
-								icon: Radio,
-								title: "Online Audio Sources",
-								desc: "Play audio from online sources via yt-dlp. Audio-first playback with no browser overhead.",
-								color: "#00d4ff",
-							},
-							{
 								icon: Palette,
-								title: "Winamp Skins",
-								desc: "Load your favorite classic Winamp skins (.wsz). Nostalgia meets modern performance.",
+								title: "Real Winamp Skins",
+								desc: "Browse 100,000+ skins from the Winamp Skin Museum with a live preview. Main window, EQ and playlist are drawn from the skin's own sprites, and every button and slider works.",
 								color: "#a855f7",
 							},
 							{
-								icon: Zap,
-								title: "Blazing Fast",
-								desc: "Written in Rust for zero-cost abstractions. Instant startup, zero lag, instant response.",
-								color: "#facc15",
+								icon: SlidersHorizontal,
+								title: "Native Audio Engine",
+								desc: "Gapless playback, ReplayGain, a 10-band EQ with presets, balance. Pure Rust decoding, no mpv required.",
+								color: "#00ff88",
 							},
 							{
-								icon: Terminal,
-								title: "Terminal Native",
-								desc: "Runs in your terminal with a beautiful TUI. No GUI overhead, no Electron, no Chromium.",
+								icon: Activity,
+								title: "Live Visualizer",
+								desc: "Real FFT spectrum and oscilloscope from what's playing: bars, LED, mirror, spectrogram, fire. Sleeps when paused.",
+								color: "#00d4ff",
+							},
+							{
+								icon: Radio,
+								title: "Internet Radio",
+								desc: "Browse ~58,000 stations from Radio Browser by country, tag or popularity. Now-playing titles from the stream.",
 								color: "#f97316",
 							},
 							{
-								icon: Shield,
-								title: "Open Source",
-								desc: "Fully open source under MIT license. Audit the code, contribute, or fork it to your liking.",
+								icon: Podcast,
+								title: "Podcasts",
+								desc: "Top charts, search and subscriptions. Episodes stream with seeking, no account needed.",
+								color: "#facc15",
+							},
+							{
+								icon: Server,
+								title: "Navidrome & Jellyfin",
+								desc: "Stream your own library from Subsonic-compatible servers or Jellyfin, with scrobbling and playback reporting.",
 								color: "#00ff88",
+							},
+							{
+								icon: Mic,
+								title: "Synced Lyrics",
+								desc: "Time-synced lyrics from LRCLIB that follow the song, with plain-text fallback.",
+								color: "#a855f7",
+							},
+							{
+								icon: Terminal,
+								title: "Remote Control",
+								desc: "rustune next, rustune status --json, rustune --daemon. Media keys on macOS and Linux (MPRIS).",
+								color: "#00d4ff",
+							},
+							{
+								icon: Keyboard,
+								title: "Command Palette",
+								desc: "Press ? or Ctrl+K to fuzzy-search every action. Winamp keys z x c v b work too.",
+								color: "#f97316",
 							},
 						].map((feature, i) => (
 							<FeatureCard key={feature.title} feature={feature} index={i} />
 						))}
+					</div>
+				</div>
+			</section>
+
+			{/* ─── Lightweight ─── */}
+			<section className="py-24 px-6 diagonal-divider">
+				<div className="max-w-3xl mx-auto">
+					<div className="font-mono-display text-[11px] text-[#00ff88] tracking-[0.3em] uppercase mb-4">
+						lightweight
+					</div>
+					<h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.05] mb-4">
+						Small on purpose<span className="text-muted-foreground">.</span>
+					</h2>
+					<p className="text-muted-foreground text-lg mb-10 max-w-xl leading-relaxed">
+						Inspired by{" "}
+						<a
+							href="https://github.com/bjarneo/cliamp"
+							target="_blank"
+							rel="noopener"
+							className="text-foreground underline underline-offset-4 decoration-[#00ff88]/40 hover:decoration-[#00ff88]"
+						>
+							cliamp
+						</a>
+						, a great Winamp-style terminal player. rustune takes the same idea
+						and keeps it tiny.
+					</p>
+					<div className="glass-card rounded-2xl overflow-hidden">
+						<table className="w-full text-sm font-mono-display">
+							<thead>
+								<tr className="text-left text-muted-foreground/70 border-b border-border/40">
+									<th className="px-5 py-3 font-normal" />
+									<th className="px-5 py-3 font-normal text-[#00ff88]">rustune 0.3</th>
+									<th className="px-5 py-3 font-normal">cliamp 2.3</th>
+								</tr>
+							</thead>
+							<tbody className="[&_td]:px-5 [&_td]:py-3 [&_tr]:border-b [&_tr]:border-border/20">
+								<tr>
+									<td className="text-muted-foreground">macOS arm64 binary</td>
+									<td className="text-[#00ff88]">4.9 MB</td>
+									<td>34.9 MB</td>
+								</tr>
+								<tr>
+									<td className="text-muted-foreground">Linux x64 binary</td>
+									<td className="text-[#00ff88]">6.1 MB</td>
+									<td>38.0 MB</td>
+								</tr>
+								<tr>
+									<td className="text-muted-foreground">Winamp .wsz skins</td>
+									<td className="text-[#00ff88]">full sprites</td>
+									<td>colour theme</td>
+								</tr>
+								<tr>
+									<td className="text-muted-foreground">ReplayGain</td>
+									<td className="text-[#00ff88]">yes</td>
+									<td>no</td>
+								</tr>
+								<tr className="border-b-0">
+									<td className="text-muted-foreground">Required runtime tools</td>
+									<td className="text-[#00ff88]">none</td>
+									<td>codec libs on macOS</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p className="text-[11px] text-muted-foreground/50 font-mono-display mt-4 leading-relaxed">
+						Sizes are the published release binaries. cliamp supports more
+						streaming services (Spotify, Tidal, Qobuz) and Lua plugins.
+						Optional for both: yt-dlp for YouTube, ffmpeg for rare formats.
+					</p>
+				</div>
+			</section>
+
+			{/* ─── Quick start ─── */}
+			<section className="py-24 px-6">
+				<div className="max-w-3xl mx-auto">
+					<div className="font-mono-display text-[11px] text-[#00ff88] tracking-[0.3em] uppercase mb-4">
+						quick start
+					</div>
+					<h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.05] mb-10">
+						Feels like 1999<span className="text-muted-foreground">.</span>
+					</h2>
+					<div className="rounded-xl bg-[#0a0a0a] border border-border/40 p-6 font-mono-display text-[13px] leading-7 overflow-x-auto">
+						<div>
+							<span className="text-muted-foreground/50">$</span>{" "}
+							<span className="text-[#00ff88]">rustune ~/Music</span>
+							<span className="text-muted-foreground/40">
+								{"      "}# play a folder, press t for the Winamp skin
+							</span>
+						</div>
+						<div>
+							<span className="text-muted-foreground/50">$</span>{" "}
+							<span className="text-[#00ff88]">rustune next</span>
+							<span className="text-muted-foreground/40">
+								{"         "}# control it from another terminal
+							</span>
+						</div>
+						<div>
+							<span className="text-muted-foreground/50">$</span>{" "}
+							<span className="text-[#00ff88]">rustune status --json</span>
+							<span className="text-muted-foreground/40">
+								{"  "}# for status bars and scripts
+							</span>
+						</div>
+						<div>
+							<span className="text-muted-foreground/50">$</span>{" "}
+							<span className="text-[#00ff88]">rustune --daemon</span>
+							<span className="text-muted-foreground/40">
+								{"     "}# headless, media keys still work
+							</span>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -310,8 +464,8 @@ function Index() {
 						Get rustune
 					</h2>
 					<p className="text-muted-foreground text-lg mb-12">
-						Download the latest release for your platform. No dependencies
-						needed.
+						Download the latest release for your platform. Nothing else to
+						install.
 					</p>
 
 					<div className="glass-card rounded-2xl p-8 space-y-4 glow-box">
