@@ -146,7 +146,7 @@ function Index() {
 							<span className="absolute inline-flex h-full w-full rounded-full bg-[#00ff88] opacity-60 animate-[pulse-ring_1.5s_ease-out_infinite]" />
 							<span className="relative inline-flex rounded-full h-2 w-2 bg-[#00ff88]" />
 						</span>
-						v0.3 — real winamp skins in your terminal
+						v0.3 · real winamp skins in your terminal
 					</div>
 
 					{/* Heading */}
@@ -171,7 +171,7 @@ function Index() {
 						</span>{" "}
 						binary. Load any classic Winamp <code className="font-mono-display">.wsz</code>{" "}
 						skin, pixel for pixel. Local files, radio, podcasts, Navidrome,
-						Jellyfin and YouTube — no mpv, no Electron.
+						Jellyfin and YouTube. No mpv, no Electron.
 					</p>
 
 					{/* CTAs */}
@@ -231,7 +231,7 @@ function Index() {
 										<div className="w-2.5 h-2.5 rounded-full bg-[#28c840]/60" />
 									</div>
 									<span className="text-[11px] font-mono-display text-muted-foreground/40 tracking-wider">
-										rustune — {shot.skin}
+										rustune · {shot.skin}
 									</span>
 								</div>
 								<div className="bg-[#080808]">
@@ -520,7 +520,7 @@ function Index() {
 						</div>
 
 						<p className="text-[11px] text-muted-foreground/50 font-mono-display mt-4 leading-relaxed">
-							macOS binaries are signed &amp; notarized by a verified Apple Developer — no need to bypass Gatekeeper or tweak privacy settings. Also available:{" "}
+							macOS binaries are signed &amp; notarized by a verified Apple Developer, so there is no need to bypass Gatekeeper or tweak privacy settings. Also available:{" "}
 							<a
 								href="https://github.com/dzulfikar08/rustune/releases/latest/download/rustune-aarch64-macos"
 								className="text-[#00ff88]/50 hover:text-[#00ff88] underline underline-offset-2"
@@ -568,7 +568,7 @@ function Index() {
 					</h2>
 					<p className="text-muted-foreground text-lg mb-12 max-w-lg mx-auto leading-relaxed">
 						rustune is free and open source. macOS binaries are signed
-						&amp; notarized by a verified Apple Developer — that certification
+						&amp; notarized by a verified Apple Developer, and that certification
 						costs real money. If you find rustune useful, a donation helps
 						cover those costs and keeps development going.
 					</p>

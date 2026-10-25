@@ -1,10 +1,10 @@
 {
   "name": "rustune-landing",
   "version": "0.5.1",
-  "description": "A monorepo template built with Bun, Hono, Vite, and React",
-  "author": "Steve Simkins",
+  "description": "Landing page for rustune, a lightweight terminal audio player with Winamp skins",
+  "author": "dzulfikar08",
   "license": "MIT",
-  "homepage": "https://github.com/stevedylandev/bhvr",
+  "homepage": "https://rustune.dzulfikar.com",
   "packageManager": "bun@1.2.4",
   "workspaces": [
     "./server",
