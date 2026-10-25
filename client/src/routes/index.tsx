@@ -678,14 +678,30 @@ function Index() {
 							</a>
 						</p>
 
-						{/* Cargo install */}
-						<div className="mt-6 p-3 rounded-lg bg-[#0a0a0a] border border-border/40">
-							<div className="text-[11px] text-muted-foreground/60 font-mono-display mb-1.5">
-								or install via cargo:
+						{/* Package managers */}
+						<div className="mt-6 rounded-lg bg-[#0a0a0a] border border-border/40 text-left overflow-x-auto">
+							<div className="px-4 pt-3 text-[11px] text-muted-foreground/60 font-mono-display">
+								or use your package manager:
 							</div>
-							<code className="font-mono-display text-[13px] text-[#00ff88]">
-								$ cargo install --git https://github.com/dzulfikar08/rustune
-							</code>
+							<div className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 px-4 py-3 font-mono-display text-[12px] min-w-max">
+								{[
+									["macOS, Linux", "curl -fsSL https://raw.githubusercontent.com/dzulfikar08/rustune/master/install.sh | sh"],
+									["Homebrew", "brew install dzulfikar08/tap/rustune"],
+									["Windows", "scoop bucket add rustune https://github.com/dzulfikar08/scoop-bucket; scoop install rustune"],
+									["Debian, Ubuntu", "sudo apt install ./rustune_*_amd64.deb   (from Releases, arm64 too)"],
+									["Fedora", "sudo dnf install ./rustune-*.x86_64.rpm   (from Releases, aarch64 too)"],
+									["Nix", "nix run github:dzulfikar08/rustune"],
+									["Rust", "cargo binstall --git https://github.com/dzulfikar08/rustune rustune"],
+								].map(([os, cmd]) => (
+									<div key={os} className="contents">
+										<span className="text-muted-foreground/60">{os}</span>
+										<code className="text-[#00ff88] select-all">{cmd}</code>
+									</div>
+								))}
+							</div>
+							<div className="px-4 pb-3 text-[11px] text-muted-foreground/50 font-mono-display">
+								Coming soon: AUR (yay -S rustune-bin), Snap Store, crates.io, winget.
+							</div>
 						</div>
 					</div>
 				</div>
