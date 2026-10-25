@@ -437,7 +437,7 @@ function Index() {
 								accent: true,
 								bars: [
 									{ name: "yt-dlp", width: "3%", note: "~1.7 s, then exits" },
-									{ name: "rustune", width: "100%", note: "plays AAC natively, 37 MB total" },
+									{ name: "rustune", width: "100%", note: "native AAC, 37 MB" },
 								],
 							},
 							{
@@ -511,7 +511,8 @@ function Index() {
 						))}
 					</div>
 					<p className="text-[11px] text-muted-foreground/50 font-mono-display mt-4 leading-relaxed">
-						Measured on an M-series MacBook Air with rustune 0.3.2. Many
+						Measured on an M-series MacBook Air. Killing yt-dlp on skip
+						arrived in rustune 0.3.4. Many
 						terminal players, including cliamp, pipe yt-dlp into ffmpeg for
 						the whole song. Sources that only offer HLS or Opus (some
 						SoundCloud tracks) still use ffmpeg in rustune.
