@@ -410,6 +410,115 @@ function Index() {
 				</div>
 			</section>
 
+			{/* ─── YouTube without the baggage ─── */}
+			<section className="py-24 px-6">
+				<div className="max-w-3xl mx-auto">
+					<div className="font-mono-display text-[11px] text-[#00ff88] tracking-[0.3em] uppercase mb-4">
+						youtube, the light way
+					</div>
+					<h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.05] mb-4">
+						Borrow yt-dlp. Then let it go
+						<span className="text-muted-foreground">.</span>
+					</h2>
+					<p className="text-muted-foreground text-lg mb-10 max-w-xl leading-relaxed">
+						yt-dlp is great at finding audio, but it is a Python program.
+						rustune only asks it one question: where is the audio file? Then
+						yt-dlp exits, and rustune streams and decodes the song itself.
+					</p>
+
+					<div className="glass-card rounded-2xl p-6 sm:p-8 font-mono-display text-xs">
+						<div className="flex justify-between text-muted-foreground/50 mb-4">
+							<span>song starts</span>
+							<span>3:30 later</span>
+						</div>
+						{[
+							{
+								player: "rustune",
+								accent: true,
+								bars: [
+									{ name: "yt-dlp", width: "3%", note: "~1.7 s, then exits" },
+									{ name: "rustune", width: "100%", note: "plays AAC natively, 37 MB total" },
+								],
+							},
+							{
+								player: "typical pipe",
+								accent: false,
+								bars: [
+									{ name: "yt-dlp", width: "100%", note: "~85 MB, whole song" },
+									{ name: "ffmpeg", width: "100%", note: "~22 MB, whole song" },
+								],
+							},
+						].map((row) => (
+							<div key={row.player} className="mb-6 last:mb-0">
+								<div
+									className={
+										row.accent
+											? "text-[#00ff88] mb-2"
+											: "text-muted-foreground mb-2"
+									}
+								>
+									{row.player}
+								</div>
+								<div className="space-y-2">
+									{row.bars.map((bar) => (
+										<div key={bar.name} className="flex items-center gap-3">
+											<span className="w-16 shrink-0 text-muted-foreground/70">
+												{bar.name}
+											</span>
+											<div className="relative flex-1 h-5 rounded bg-white/[0.03]">
+												<div
+													className={
+														row.accent && bar.name === "yt-dlp"
+															? "h-full rounded bg-[#00ff88]"
+															: row.accent
+																? "h-full rounded bg-[#00ff88]/25"
+																: "h-full rounded bg-[#f97316]/40"
+													}
+													style={{ width: bar.width, minWidth: "6px" }}
+												/>
+												<span className="absolute inset-y-0 right-2 flex items-center text-[11px] text-foreground/70">
+													{bar.note}
+												</span>
+											</div>
+										</div>
+									))}
+								</div>
+							</div>
+						))}
+					</div>
+
+					<div className="grid sm:grid-cols-3 gap-4 mt-8 text-sm">
+						{[
+							{
+								title: "Spawn, ask, exit",
+								desc: "yt-dlp runs once per song to get the stream link, with a timeout. If you skip before it answers, rustune kills it.",
+							},
+							{
+								title: "Pick a format we can play",
+								desc: "rustune asks for AAC, which its own decoder handles. No ffmpeg running behind every song.",
+							},
+							{
+								title: "Instant seeking",
+								desc: "The audio is streamed over plain HTTP, so jumping ahead is a range request, not a restart of two programs.",
+							},
+						].map((item) => (
+							<div key={item.title} className="glass-card rounded-xl p-5">
+								<div className="font-bold mb-2">{item.title}</div>
+								<p className="text-muted-foreground leading-relaxed">
+									{item.desc}
+								</p>
+							</div>
+						))}
+					</div>
+					<p className="text-[11px] text-muted-foreground/50 font-mono-display mt-4 leading-relaxed">
+						Measured on an M-series MacBook Air with rustune 0.3.2. Many
+						terminal players, including cliamp, pipe yt-dlp into ffmpeg for
+						the whole song. Sources that only offer HLS or Opus (some
+						SoundCloud tracks) still use ffmpeg in rustune.
+					</p>
+				</div>
+			</section>
+
 			{/* ─── Quick start ─── */}
 			<section className="py-24 px-6">
 				<div className="max-w-3xl mx-auto">
