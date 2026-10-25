@@ -6,8 +6,6 @@ import {
 	Cpu,
 	Palette,
 	Radio,
-	Zap,
-	Shield,
 	Terminal,
 	ArrowRight,
 	SlidersHorizontal,
