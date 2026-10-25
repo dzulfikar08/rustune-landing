@@ -395,9 +395,9 @@ function Index() {
 									<td>no</td>
 								</tr>
 								<tr className="border-b-0">
-									<td className="text-muted-foreground">Required runtime tools</td>
+									<td className="text-muted-foreground">Extra installs needed</td>
 									<td className="text-[#00ff88]">none</td>
-									<td>codec libs on macOS</td>
+									<td>Homebrew codec libs (macOS)</td>
 								</tr>
 							</tbody>
 						</table>
@@ -420,33 +420,21 @@ function Index() {
 						Feels like 1999<span className="text-muted-foreground">.</span>
 					</h2>
 					<div className="rounded-xl bg-[#0a0a0a] border border-border/40 p-6 font-mono-display text-[13px] leading-7 overflow-x-auto">
-						<div>
-							<span className="text-muted-foreground/50">$</span>{" "}
-							<span className="text-[#00ff88]">rustune ~/Music</span>
-							<span className="text-muted-foreground/40">
-								{"      "}# play a folder, press t for the Winamp skin
-							</span>
-						</div>
-						<div>
-							<span className="text-muted-foreground/50">$</span>{" "}
-							<span className="text-[#00ff88]">rustune next</span>
-							<span className="text-muted-foreground/40">
-								{"         "}# control it from another terminal
-							</span>
-						</div>
-						<div>
-							<span className="text-muted-foreground/50">$</span>{" "}
-							<span className="text-[#00ff88]">rustune status --json</span>
-							<span className="text-muted-foreground/40">
-								{"  "}# for status bars and scripts
-							</span>
-						</div>
-						<div>
-							<span className="text-muted-foreground/50">$</span>{" "}
-							<span className="text-[#00ff88]">rustune --daemon</span>
-							<span className="text-muted-foreground/40">
-								{"     "}# headless, media keys still work
-							</span>
+						<div className="grid grid-cols-[auto_1fr] gap-x-8 min-w-max">
+							{[
+								["rustune ~/Music", "play a folder, press t for the Winamp skin"],
+								["rustune next", "control it from another terminal"],
+								["rustune status --json", "for status bars and scripts"],
+								["rustune --daemon", "headless, media keys still work"],
+							].map(([cmd, note]) => (
+								<div key={cmd} className="contents">
+									<div>
+										<span className="text-muted-foreground/50">$ </span>
+										<span className="text-[#00ff88]">{cmd}</span>
+									</div>
+									<div className="text-muted-foreground/40"># {note}</div>
+								</div>
+							))}
 						</div>
 					</div>
 				</div>
