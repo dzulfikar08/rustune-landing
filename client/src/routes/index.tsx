@@ -255,8 +255,8 @@ function Index() {
 			{/* ─── Stats ─── */}
 			<section className="py-20 px-6 diagonal-divider">
 				<div className="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-10">
-					<StatCounter value="4.9MB" label="macOS Binary" delay="0ms" />
-					<StatCounter value="0.1%" label="CPU While Playing" delay="100ms" />
+					<StatCounter value="5.2MB" label="macOS Binary" delay="0ms" />
+					<StatCounter value="31MB" label="RAM While Playing" delay="100ms" />
 					<StatCounter value="0" label="Runtime Deps" delay="200ms" />
 					<StatCounter value="100k+" label="Winamp Skins Online" delay="300ms" />
 				</div>
@@ -369,20 +369,35 @@ function Index() {
 							<thead>
 								<tr className="text-left text-muted-foreground/70 border-b border-border/40">
 									<th className="px-5 py-3 font-normal" />
-									<th className="px-5 py-3 font-normal text-[#00ff88]">rustune 0.3</th>
-									<th className="px-5 py-3 font-normal">cliamp 2.3</th>
+									<th className="px-5 py-3 font-normal text-[#00ff88]">rustune 0.3.5</th>
+									<th className="px-5 py-3 font-normal">cliamp 2.3.0</th>
 								</tr>
 							</thead>
 							<tbody className="[&_td]:px-5 [&_td]:py-3 [&_tr]:border-b [&_tr]:border-border/20">
 								<tr>
 									<td className="text-muted-foreground">macOS arm64 binary</td>
-									<td className="text-[#00ff88]">4.9 MB</td>
+									<td className="text-[#00ff88]">5.2 MB</td>
 									<td>34.9 MB</td>
 								</tr>
 								<tr>
 									<td className="text-muted-foreground">Linux x64 binary</td>
-									<td className="text-[#00ff88]">6.1 MB</td>
+									<td className="text-[#00ff88]">6.5 MB</td>
 									<td>38.0 MB</td>
+								</tr>
+								<tr>
+									<td className="text-muted-foreground">RAM, playing</td>
+									<td className="text-[#00ff88]">31 MB</td>
+									<td>72 MB</td>
+								</tr>
+								<tr>
+									<td className="text-muted-foreground">CPU, playing</td>
+									<td className="text-[#00ff88]">4.8 %</td>
+									<td>16.4 %</td>
+								</tr>
+								<tr>
+									<td className="text-muted-foreground">CPU, paused</td>
+									<td className="text-[#00ff88]">0.14 %</td>
+									<td>0.58 %</td>
 								</tr>
 								<tr>
 									<td className="text-muted-foreground">Winamp .wsz skins</td>
@@ -403,9 +418,14 @@ function Index() {
 						</table>
 					</div>
 					<p className="text-[11px] text-muted-foreground/50 font-mono-display mt-4 leading-relaxed">
-						Sizes are the published release binaries. cliamp supports more
-						streaming services (Spotify, Tidal, Qobuz) and Lua plugins.
-						Optional for both: yt-dlp for YouTube, ffmpeg for rare formats.
+						Sizes are the published release binaries. RAM and CPU: Apple M1
+						MacBook Air (8 GB), both TUIs at their defaults with the
+						visualizer on, the same 192 kbps MP3, 30 s, whole process tree.
+						Headless (--daemon) playback is the exception for now: rustune
+						2.2 % vs cliamp 0.1 %, and a faster resampler is in progress.
+						cliamp supports more streaming services (Spotify, Tidal, Qobuz)
+						and Lua plugins. Optional for both: yt-dlp for YouTube, ffmpeg
+						for rare formats.
 					</p>
 				</div>
 			</section>
@@ -437,15 +457,15 @@ function Index() {
 								accent: true,
 								bars: [
 									{ name: "yt-dlp", width: "3%", note: "~1.7 s, then exits" },
-									{ name: "rustune", width: "100%", note: "native AAC, 37 MB" },
+									{ name: "rustune", width: "100%", note: "native AAC, 32 MB" },
 								],
 							},
 							{
-								player: "typical pipe",
+								player: "yt-dlp | ffmpeg pipe",
 								accent: false,
 								bars: [
-									{ name: "yt-dlp", width: "100%", note: "~85 MB, whole song" },
-									{ name: "ffmpeg", width: "100%", note: "~22 MB, whole song" },
+									{ name: "yt-dlp", width: "100%", note: "~82 MB, whole song" },
+									{ name: "ffmpeg", width: "100%", note: "~15 MB, whole song" },
 								],
 							},
 						].map((row) => (
@@ -511,11 +531,12 @@ function Index() {
 						))}
 					</div>
 					<p className="text-[11px] text-muted-foreground/50 font-mono-display mt-4 leading-relaxed">
-						Measured on an M-series MacBook Air. Killing yt-dlp on skip
-						arrived in rustune 0.3.4. Many
-						terminal players, including cliamp, pipe yt-dlp into ffmpeg for
-						the whole song. Sources that only offer HLS or Opus (some
-						SoundCloud tracks) still use ffmpeg in rustune.
+						Measured on an Apple M1 MacBook Air: rustune 0.3.5 playing a
+						YouTube song used 32 MB in a single process. cliamp's yt-dlp |
+						ffmpeg command, run exactly as written in its source, kept 82 MB
+						+ 15 MB alive for the whole song on top of the player. Killing
+						yt-dlp on skip arrived in rustune 0.3.4. Sources that only offer
+						HLS or Opus (some SoundCloud tracks) still use ffmpeg in rustune.
 					</p>
 				</div>
 			</section>
