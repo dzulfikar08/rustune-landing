@@ -326,7 +326,7 @@ function Index() {
 							{
 								icon: Terminal,
 								title: "Remote Control",
-								desc: "rustune next, rustune status --json, rustune --daemon. Media keys on macOS and Linux (MPRIS).",
+								desc: "Drive everything from another terminal: rustune search online lofi --play 1, rustune next, rustune status --json, even rustune key and rustune screen. Headless --daemon, media keys on macOS and Linux.",
 								color: "#00d4ff",
 							},
 							{
@@ -675,6 +675,20 @@ function Index() {
 								className="text-[#00ff88]/50 hover:text-[#00ff88] underline underline-offset-2"
 							>
 								bare binary (Intel)
+							</a>
+							{" | "}
+							<a
+								href="https://github.com/dzulfikar08/rustune/releases/latest/download/rustune-aarch64-linux"
+								className="text-[#00ff88]/50 hover:text-[#00ff88] underline underline-offset-2"
+							>
+								Linux (ARM64)
+							</a>
+							{" | "}
+							<a
+								href="https://github.com/dzulfikar08/rustune/releases/latest"
+								className="text-[#00ff88]/50 hover:text-[#00ff88] underline underline-offset-2"
+							>
+								all downloads, .deb, .rpm
 							</a>
 						</p>
 
